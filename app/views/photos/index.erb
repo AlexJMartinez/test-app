@@ -1,0 +1,10 @@
+
+
+<ul align="center">
+  <% @photos.each do |photo| %>
+  <li>
+    <a href='/photos/<%= photo.id %>'><%= photo.name %></a>
+
+  </li>
+  <% end %>
+</ul>
