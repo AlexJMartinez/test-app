@@ -1,0 +1,9 @@
+<h1 align="center">Community Photos</h1>
+
+
+<a href="/users/<%= current_user.id %>">Home</a>
+<a href="/my_photos">My Photos</a><br><br>
+
+<% Photo.all.each do |photo| %>
+  <img src="<%= photo.img_url %>">
+  <% end %>

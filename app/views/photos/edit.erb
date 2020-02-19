@@ -1,7 +1,7 @@
 <h1>Edit</h1>
 
-<form action="/photos/<%= @photo.id %>" method "post">
-  <input type="hidden" name="_method" value="patch">
+<form action="/photos/<%= @photo.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
   Upload Imgur Link: <input type="text" name="img_url" placeholder="<%= @photo.img_url %>" >
   <input type="submit"><br><br>
   <label>Title: <input type="text" name="name"></label>

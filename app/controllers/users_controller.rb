@@ -40,6 +40,10 @@ end
   end
 end
 
+  get '/community_photos' do
+    erb :'/photos/community_photos'
+  end
+
   get '/logout' do
     session.clear
     flash[:message] = "See you next time!"

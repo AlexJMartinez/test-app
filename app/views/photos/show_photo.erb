@@ -1,12 +1,12 @@
 <h1>Latest Upload</h1>
 
-<%= @photo.img_url %>
+<img src="<%= @photo.img_url %>">
 
 <% if authorized_to_edit?(@photo) %>
 <a href="/photos/<%= @photo.id %>/edit">Edit Entry</a>
-<a href="">Delete Entry</a>
-<form class="" action="/photos/<%= @photo.id %>" method="post">
-  <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" name="" value="Delete This Entry"
+<!-- <a href="">Delete Entry</a> -->
+<form action="/photos/<%= @photo.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="Delete This Entry">
 </form>
 <% end %>

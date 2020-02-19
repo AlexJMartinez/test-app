@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<h1>My Photos</h1>
+<% current_user.photos.each do |photo| %>
+  <img src="<%= photo.img_url %>">
+  <% end %>
+
+  <div style="text-align: center">
+    Click <a href="/my_photos/new_photo">here</a> to upload your art!<br>
+    </div><br>
+
+<a href="/users/<%= current_user.id %>">Home</a>
+  <a href="/community_photos">Community Photos</a>
