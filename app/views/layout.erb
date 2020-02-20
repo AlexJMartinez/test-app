@@ -18,13 +18,18 @@
     <% if flash[:message] %>
     <h3><%= flash[:message] %></h3>
     <% end %>
-    
+
     <div class="wrapper">
 
         <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>TestApp</strong></small>
+
+      <a href="/my_photos">My Photos</a>
+      
+      <a href="/community_photos">Community Photos</a>
+      <a href="/logout">Log Out</a>
       </footer>
     </div>
 

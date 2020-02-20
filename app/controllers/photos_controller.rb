@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
   get '/my_photos' do
-# binding.pry
+
     if logged_in?
       @photos = Photo.all
       erb :'/photos/user_photos'
@@ -24,7 +24,7 @@ class PhotosController < ApplicationController
         @photo = current_user.photos.build(name: params[:name], img_url: params[:img_url])
 
         if @photo.save
-          redirect "/my_photos"
+          erb :'/photos/show_photo'
         else
           redirect '/new_photo'
           flash[:message] = "Something went wrong."
@@ -63,19 +63,20 @@ end
 
     set_photo_entry
     if logged_in?
-      if @photo.user == current_user && params[:img_url] != params[:img_url]
-    @photo.update(name: params[:name], img_url: params[:img_url])
-    redirect "/photos/#{@photo.id}"
-  else
-    redirect "users/#{current_user.id}"
-  end
-else
-  redirect '/'
-end
+      if @photo.user == current_user && params[:img_url] != ""
+        @photo.update(name: params[:name], img_url: params[:img_url])
+
+        redirect "/photos/#{@photo.id}"
+      else
+        redirect "users/#{current_user.id}"
+      end
+    else
+        redirect '/'
+    end
   end
 
   delete '/photos/:id/delete' do
-    # binding.pry
+
     set_photo_entry
     if authorized_to_edit?(@photo)
     @photo.delete

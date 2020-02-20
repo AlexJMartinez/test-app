@@ -27,6 +27,7 @@ class UsersController < ApplicationController
      @user.save
      redirect "/users/#{@user.id}"
    else
+     flash[:message] = "Please enter credentials to sign up."
      redirect '/signup'
   end
 end

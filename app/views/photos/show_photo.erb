@@ -1,12 +1,35 @@
-<h1>Latest Upload</h1>
+<html>
+<head>
+  <style>
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
 
+/* Add a hover effect (blue shadow) */
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+</head>
+<title></title>
+<body>
+<h1 align="center"><font face="Serif">Latest Upload</font></h1>
+
+<a target="_blank" href="<%= @photo.img_url %>">
 <img src="<%= @photo.img_url %>">
+</a>
 
-<% if authorized_to_edit?(@photo) %>
+<% if authorized_to_edit?(@photo) %><br>
 <a href="/photos/<%= @photo.id %>/edit">Edit Entry</a>
-<!-- <a href="">Delete Entry</a> -->
+
 <form action="/photos/<%= @photo.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete This Entry">
 </form>
 <% end %>
+
+</body>
+</html>

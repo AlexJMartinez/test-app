@@ -2,7 +2,7 @@
 
 <form action="/photos/<%= @photo.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  Upload Imgur Link: <input type="text" name="img_url" placeholder="<%= @photo.img_url %>" >
+  Upload Imgur Link: <input type="text" name="img_url" placeholder="img_url" value="<%= @photo.img_url %>">
+  <label>Title: <input type="text" name="name" value="<%= @photo.name %>"></label>
   <input type="submit"><br><br>
-  <label>Title: <input type="text" name="name"></label>
 </form>

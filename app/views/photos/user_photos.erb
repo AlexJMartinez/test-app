@@ -1,12 +1,38 @@
 <!DOCTYPE HTML>
-<h1>My Photos</h1>
-<% current_user.photos.each do |photo| %>
-  <img src="<%= photo.img_url %>">
-  <% end %>
+<html>
+<head>
+  <style>
+img {
+  border: 1px solid #ddd; /* Gray border */
+  border-radius: 4px;  /* Rounded border */
+  padding: 5px; /* Some padding */
+  width: 150px; /* Set a small width */
+}
 
-  <div style="text-align: center">
-    Click <a href="/my_photos/new_photo">here</a> to upload your art!<br>
-    </div><br>
+/* Add a hover effect (blue shadow) */
+img:hover {
+  box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+</style>
+</head>
+<title></title>
+
+<body>
+<h1 align="center"><font face="Serif">My Photos</font></h1><br>
+
+<div style="text-align: center">
+  Click <a href="/my_photos/new_photo">here</a> to upload your art!<br>
+  </div><br>
+
+<% current_user.photos.each do |photo| %>
+<a target="_blank" href="<%= photo.img_url %>">
+  <a href="/photos/<%= photo.id %>"><img src="<%= photo.img_url %>"></a>
+</a>
+  <% end %><br><br>
+
+
 
 <a href="/users/<%= current_user.id %>">Home</a>
-  <a href="/community_photos">Community Photos</a>
+
+</body>
+</html>

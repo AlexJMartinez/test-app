@@ -1,9 +1,33 @@
-<h1 align="center">Community Photos</h1>
+<html>
+<head>
+  <style>
+  img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 4px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    width: 150px; /* Set a small width */
+  }
+
+  /* Add a hover effect (blue shadow) */
+  img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+  }
+  </style>
+</head>
+<title></title>
+<body>
+<h1 align="center"><font face="Serif">Community Photos</font></h1>
 
 
-<a href="/users/<%= current_user.id %>">Home</a>
-<a href="/my_photos">My Photos</a><br><br>
+
 
 <% Photo.all.each do |photo| %>
+<a target="_blank" href="<%= photo.img_url %>">
   <img src="<%= photo.img_url %>">
-  <% end %>
+</a>
+  <% end %><br><br>
+
+  <a href="/users/<%= current_user.id %>">Home</a>
+
+</body>
+</html>
