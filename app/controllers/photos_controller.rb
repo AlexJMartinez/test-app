@@ -10,7 +10,7 @@ class PhotosController < ApplicationController
     end
   end
 
-  get '/my_photos/new_photo' do
+  get '/new_photo' do
     erb :'/photos/new_photo'
   end
 
