@@ -15,9 +15,10 @@ class PhotosController < ApplicationController
   end
 
   post '/new_photo' do
-
+# binding.pry
     if logged_in?
       if params[:name] == "" || params[:img_url] == ""
+        # && params[:img_url].exclude?(".jpg")
         flash[:message] = "All fields required!"
         redirect '/new_photo'
       else
