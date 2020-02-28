@@ -18,8 +18,8 @@ class PhotosController < ApplicationController
 
     if logged_in?
       if params[:name] == "" || params[:img_url] == ""
-        redirect '/new_photo'
         flash[:message] = "All fields required!"
+        redirect '/new_photo'
       else
         @photo = current_user.photos.build(name: params[:name], img_url: params[:img_url])
 

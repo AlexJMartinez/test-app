@@ -29,7 +29,12 @@ img:hover {
   <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete This Entry">
 </form>
-<% end %>
+<% end %><br>
+
+<a href="/users/<%= current_user.id %>">Home</a>
+<a href="/my_photos">My Photos</a>
+<a href="/logout">Log Out</a>
+
 
 </body>
 </html>
