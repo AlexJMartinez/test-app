@@ -26,7 +26,9 @@ img:hover {
 
 <% current_user.photos.each do |photo| %>
 <a target="_blank" href="<%= photo.img_url %>">
-  <a href="/photos/<%= photo.id %>"><img src="<%= photo.img_url %>"></a>
+  <a href="/photos/<%= photo.id %>">
+    <span title="<%= photo.name %>">
+      <img src="<%= photo.img_url %>"></span></a>
 </a>
   <% end %><br><br>
 
