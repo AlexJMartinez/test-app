@@ -31,5 +31,11 @@ class ApplicationController < Sinatra::Base
     def authorized_to_edit?(photo)
       photo.user == current_user
     end
+
+    def not_logged_in
+      if !logged_in?
+        redirect '/'
+      end
+    end
   end
 end

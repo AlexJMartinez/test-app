@@ -18,14 +18,13 @@ class PhotosController < ApplicationController
 # binding.pry
     if logged_in?
       if params[:name] == "" || params[:img_url] == ""
-        # && params[:img_url].exclude?(".jpg")
         flash[:message] = "All fields required!"
         redirect '/new_photo'
       else
         @photo = current_user.photos.build(name: params[:name], img_url: params[:img_url])
 
         if @photo.save
-          erb :'/photos/show_photo'
+          redirect "/photos/#{@photo.id}"
         else
           redirect '/new_photo'
           flash[:message] = "Something went wrong."
@@ -40,30 +39,28 @@ end
     if logged_in?
       @photo = Photo.find_by_id(params[:id])
 
-    erb :'/photos/show_photo'
-  else
-    redirect '/login'
+      erb :'/photos/show_photo'
+    else
+      redirect '/login'
   end
 end
 
   get '/photos/:id/edit' do
     set_photo_entry
-    if logged_in?
-    if authorized_to_edit?(@photo)
+    not_logged_in
+  if authorized_to_edit?(@photo)
     erb :'/photos/edit'
   else
     redirect "users/#{current_user.id}"
   end
-else
-  redirect '/'
-  end
 end
+
 
 
   patch '/photos/:id' do
 
     set_photo_entry
-    if logged_in?
+      not_logged_in
       if @photo.user == current_user && params[:img_url] != ""
         @photo.update(name: params[:name], img_url: params[:img_url])
 
@@ -71,9 +68,6 @@ end
       else
         redirect "users/#{current_user.id}"
       end
-    else
-        redirect '/'
-    end
   end
 
   delete '/photos/:id/delete' do
