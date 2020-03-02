@@ -16,7 +16,7 @@
 </head>
 <title></title>
 <body>
-<h1 align="center"><font face="Serif">Community Photos</font></h1><br>
+<h1 align="center"><font face="Comic Sans MS", cursive, sans-serif;>Community Photos</font></h1><br>
 
 <div style="text-align: center">
   Click <a href='/new_photo'>here</a> to upload your art!<br>
@@ -25,16 +25,16 @@
 
 
 
-<% Photo.all.each do |photo| %>
-<a target="_blank" href="<%= photo.img_url %>">
-  <span title="<%= photo.name %>">
-    <img src="<%= photo.img_url %>"></span>
-</a>
-<% end %><br><br>
+  <% Photo.all.each do |photo| %>
+  <a target="_self" href="<%= photo.img_url %>">
+    <span title="<%= photo.name %>">
+      <img src="<%= photo.img_url %>"></span>
+  </a>
+  <% end %><br><br>
 
-  <a href="/users/<%= current_user.id %>">Home</a>
-  <a href="/my_photos">My Photos</a>
-  <a href="/logout">Log Out</a>
+  <a href="/users/<%= current_user.id %>"><button>Home</button></a>
+<a href="/my_photos"><button>My Photos</button></a>
+  <a href="/logout"><button>Log Out</button></a>
 
 </body>
 </html>

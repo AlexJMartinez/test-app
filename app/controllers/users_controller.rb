@@ -52,7 +52,6 @@ end
 
   get '/logout' do
     session.clear
-    flash[:message] = "See you next time!"
-    redirect '/'
+    erb :logout
   end
 end
