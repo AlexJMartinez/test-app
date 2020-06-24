@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem "bigdecimal", "1.3.5"
 gem 'sinatra-flash'
-gem 'rack', "2.2.2"
+gem 'rack', "2.2.3"
 
 group :test do
   gem 'rspec'
